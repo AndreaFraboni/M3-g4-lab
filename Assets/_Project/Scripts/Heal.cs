@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Heal : MonoBehaviour
 {
-    private int healAmount = 10;
+    [SerializeField] private int healAmount = 10;
 
     private void OnTriggerEnter2D(Collider2D collision)
     {

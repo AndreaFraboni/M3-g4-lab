@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class CoinsHandler : MonoBehaviour
 {
-    private int coins;
+    [SerializeField] private int coins;
 
     public void TakeCoins(int amount)
     {

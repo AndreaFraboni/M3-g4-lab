@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Coin : MonoBehaviour
 {
-    private int coinsAmount = 1;
+    [SerializeField] private int coinsAmount = 1;
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
