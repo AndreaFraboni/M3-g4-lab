@@ -31,7 +31,8 @@ public class PlayerController : MonoBehaviour
 
     void Move()
     {
-        _rb.MovePosition(_rb.position + direction * (_speed * Time.deltaTime));
+        // _rb.MovePosition(_rb.position + direction * (_speed * Time.deltaTime));
+        _rb.velocity = direction * _speed;
     }
 
     void CheckInput() // controlla l'Input da tastiera WASD - Tasti freccia .....
@@ -39,13 +40,17 @@ public class PlayerController : MonoBehaviour
         float h = Input.GetAxis("Horizontal");
         float v = Input.GetAxis("Vertical");
 
-        direction = new Vector3(h, v);
+        direction = new Vector2 (h, v); // crea vettore direzione
 
-        float sqrLenght = direction.sqrMagnitude;
-        if (sqrLenght > 1)
-        {
-            direction = direction / Mathf.Sqrt(sqrLenght);
-        }
+        //float sqrLenght = direction.sqrMagnitude;
+        //if (sqrLenght > 1)
+        //{
+        //    direction = direction / Mathf.Sqrt(sqrLenght);
+        //}
+         
+        if (direction.sqrMagnitude > 1f)
+            direction = direction.normalized;
+
     }
 
 }
