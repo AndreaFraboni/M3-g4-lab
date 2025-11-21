@@ -15,6 +15,16 @@ public class Bomb : MonoBehaviour
                 collision.GetComponent<LifeController>().TakeDamage(damage);
                 Destroy(gameObject);
             }
+            else
+            {
+                Debug.Log("GameObject non riconosciuto !!!");
+                return;
+            }
+        }
+        else
+        {
+            Debug.Log("GameObject non ha il LifeController !!!");
+            return;
         }
     }
 }

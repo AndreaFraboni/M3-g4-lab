@@ -8,7 +8,7 @@ public class Coin : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.GetComponent<LifeController>() != null)
+        if (collision.GetComponent<CoinsHandler>() != null)
         {
             if (collision.CompareTag("Player"))
             {
@@ -16,6 +16,16 @@ public class Coin : MonoBehaviour
                 collision.GetComponent<CoinsHandler>().TakeCoins(coinsAmount);
                 Destroy(gameObject);
             }
+            else
+            {
+                Debug.Log("GameObject non riconosciuto !!!");
+                return;
+            }
+        }
+        else
+        {
+            Debug.Log("GameObject non ha il CoinsHandler !!!");
+            return;
         }
     }
 

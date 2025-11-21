@@ -15,7 +15,18 @@ public class Heal : MonoBehaviour
                 collision.GetComponent<LifeController>().TakeHeal(healAmount);
                 Destroy(gameObject);
             }
+            else
+            {
+                Debug.Log("GameObject non riconosciuto !!!");
+                return;
+            }
         }
+        else
+        {
+            Debug.Log("GameObject non ha il LifeController !!!");
+            return;
+        }
+
     }
 
 }
