@@ -8,10 +8,13 @@ public class Heal : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.CompareTag("Player"))
+        if (collision.GetComponent<LifeController>() != null)
         {
-            collision.GetComponent<LifeController>().TakeHeal(healAmount);
-            Destroy(gameObject);
+            if (collision.CompareTag("Player"))
+            {
+                collision.GetComponent<LifeController>().TakeHeal(healAmount);
+                Destroy(gameObject);
+            }
         }
     }
 

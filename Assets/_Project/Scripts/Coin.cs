@@ -6,25 +6,16 @@ public class Coin : MonoBehaviour
 {
     public int coinsAmount = 1;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
-
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.CompareTag("Player"))
+        if (collision.GetComponent<LifeController>() != null)
         {
-            Debug.Log($"Coins : {coinsAmount}");
-            collision.GetComponent<CoinsHandler>().TakeCoins(coinsAmount);
-            Destroy(gameObject);
+            if (collision.CompareTag("Player"))
+            {
+                Debug.Log($"Coins : {coinsAmount}");
+                collision.GetComponent<CoinsHandler>().TakeCoins(coinsAmount);
+                Destroy(gameObject);
+            }
         }
     }
 

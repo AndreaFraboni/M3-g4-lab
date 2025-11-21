@@ -8,10 +8,13 @@ public class Bomb : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.CompareTag("Player"))
+        if (collision.GetComponent<LifeController>() != null)
         {
-            collision.GetComponent<LifeController>().TakeDamage(damage);
-            Destroy(gameObject);
+            if (collision.CompareTag("Player"))
+            {
+                collision.GetComponent<LifeController>().TakeDamage(damage);
+                Destroy(gameObject);
+            }
         }
     }
 }
