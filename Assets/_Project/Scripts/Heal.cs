@@ -17,7 +17,7 @@ public class Heal : MonoBehaviour
             }
             else
             {
-                Debug.Log("GameObject non riconosciuto !!!");
+                Debug.Log("GameObject non è il Player !!!");
                 return;
             }
         }
