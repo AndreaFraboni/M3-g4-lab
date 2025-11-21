@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Bomb : MonoBehaviour
 {
-    public int damage = 10;
+    private int damage = 10;
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
